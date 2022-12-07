@@ -1,0 +1,69 @@
+@import "variables.scss";
+
+#mainNav {
+  padding: $gutter-3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+
+  img {
+    margin-bottom: $gutter-2;
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-white;
+    font-size: 1.5rem;
+    text-align: center;
+    display: block;
+
+    &:hover {
+      color: $color-white;
+
+      &::after,
+      &::before {
+        content: "";
+        border-top: $gutter solid transparent;
+        border-right: $gutter solid transparent;
+        border-bottom: $gutter solid transparent;
+        border-left: $gutter solid $color-highlight;
+        display: inline-block;
+        transform: translateX(0);
+        animation: pointing 250ms linear infinite alternate;
+      }
+
+      &::after {
+        border-left: $gutter solid transparent;
+        border-right: $gutter solid $color-highlight;
+        animation: pointing-revert 250ms linear infinite alternate;
+      }
+    }
+
+    &.active {
+      color: $color-highlight
+    }
+  }
+}
+
+@keyframes pointing {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-$gutter);
+  }
+}
+
+@keyframes pointing-revert {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX($gutter);
+  }
+}

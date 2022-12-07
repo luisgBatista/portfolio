@@ -1,0 +1,10 @@
+@import "reset.css";
+@import "variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Lato:wght@400;700&display=swap');
+
+html {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  background-color: $color-primary-dark;
+  color: $color-white
+}
