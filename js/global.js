@@ -16,9 +16,9 @@ const onClickMenuItem = () => {
 const { origin, href } = window.location
 
 const menuItems = {
-  [`${origin}/about.html`]: 'about',
-  [`${origin}/works.html`]: 'works',
-  [`${origin}/contact.html`]: 'contact'
+  [`${origin}/portifolio/about.html`]: 'about',
+  [`${origin}/portifolio/works.html`]: 'works',
+  [`${origin}/portifolio/contact.html`]: 'contact'
 }
 
 const getActiveMenuItem = () => {
