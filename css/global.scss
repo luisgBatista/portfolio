@@ -8,3 +8,10 @@ html {
   background-color: $color-primary-dark;
   color: $color-white
 }
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  padding: 0 $gutter;
+  margin: 0 auto;
+}

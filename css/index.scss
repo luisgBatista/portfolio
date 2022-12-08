@@ -9,6 +9,14 @@
   min-height: 100vh;
   font-family: 'Kdam Thmor Pro', sans-serif;
 
+  .header {
+    display: none;
+  }
+
+  .main {
+    display: block;
+  }
+
   img {
     margin-bottom: $gutter-2;
   }
