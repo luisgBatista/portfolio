@@ -13,15 +13,16 @@ const onClickMenuItem = () => {
   });
 }
 
+const { origin, href } = window.location
+
 const menuItems = {
-  '/about.html': 'about',
-  '/works.html': 'works',
-  '/contact.html': 'contact'
+  [`${origin}/about.html`]: 'about',
+  [`${origin}/works.html`]: 'works',
+  [`${origin}/contact.html`]: 'contact'
 }
 
 const getActiveMenuItem = () => {
-  const { pathname } = window.location
-  const activeItem = menuItems[pathname]
+  const activeItem = menuItems[href]
 
   document.querySelector(`[data-url="${activeItem}"] a`).classList.add('active')
 }
