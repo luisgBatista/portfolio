@@ -27,6 +27,19 @@ const getActiveMenuItem = () => {
   document.querySelector(`[data-url="${activeItem}"] a`).classList.add('active')
 }
 
+const onClickMobileButton = () => {
+  const button = document.querySelector(".menuButton");
+
+  button.addEventListener("click", () => {
+    const currentState = button.getAttribute("aria-expanded");
+
+    currentState === "false"
+      ? button.setAttribute("aria-expanded", "true")
+      : button.setAttribute("aria-expanded", "false")
+
+  });
+}
+
 // FETCH NAV
 const nav = document.querySelector("nav")
 if (nav) {
@@ -37,6 +50,7 @@ if (nav) {
 
     onClickMenuItem();
     getActiveMenuItem();
+    onClickMobileButton();
   });
 }
 
