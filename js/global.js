@@ -13,14 +13,6 @@ const onClickMenuItem = () => {
   });
 }
 
-const { origin, href } = window.location
-
-const menuItems = {
-  [`${origin}/portifolio/about.html`]: 'about',
-  [`${origin}/portifolio/works.html`]: 'works',
-  [`${origin}/portifolio/contact.html`]: 'contact'
-}
-
 const getActiveMenuItem = () => {
   const activeItem = menuItems[href]
 
@@ -39,6 +31,52 @@ const onClickMobileButton = () => {
 
   });
 }
+
+const { origin, href } = window.location
+
+const menuItems = {
+  [`${origin}/portifolio/about.html`]: 'about',
+  [`${origin}/portifolio/works.html`]: 'works',
+  [`${origin}/portifolio/contact.html`]: 'contact'
+}
+
+const getSVGCode = async (url) => {
+  const request = await fetch(url)
+  return request.text()
+}
+
+const socialMidiaItems = async () => ([
+  {
+    title: "Linkedin",
+    url: "https://www.linkedin.com/in/luis-gustavo-batista",
+    image: await getSVGCode("./img/linkedin.svg")
+  },
+  {
+    title: "Instagram",
+    url: "https://www.instagram.com/encode_front",
+    image: await getSVGCode("./img/instagram.svg")
+  },
+  {
+    title: "Youtube",
+    url: "https://www.youtube.com/@encode7583",
+    image: await getSVGCode("./img/youtube.svg")
+  }
+])
+
+const mountSocialList = async () => {
+  const items = await socialMidiaItems()
+
+  const htmlListItems = items.map(item => `
+    <li>
+      <a href="${item.url}" title="${item.title}">
+        ${item.image}
+      </a>
+    </li>
+  `).join('')
+
+  document.querySelector('footer .social-list').innerHTML = htmlListItems
+}
+
 
 // FETCH NAV
 const nav = document.querySelector("nav")
@@ -61,5 +99,7 @@ if (footer) {
     return response.text()
   }).then(data => {
     footer.innerHTML = data;
+
+    mountSocialList()
   });
 }
