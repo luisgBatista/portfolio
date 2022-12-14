@@ -1,6 +1,12 @@
 footer {
   grid-area: footer;
 
+  p {
+    color: $color-primary-light;
+    font-size: 0.8rem;
+    margin-top: $gutter;
+  }
+
   >div {
     padding-top: $gutter-4;
     text-align: center;

@@ -23,8 +23,9 @@ export const onClickMenuItem = () => {
 
 export const getActiveMenuItem = () => {
   const activeItem = menuItems[href]
+  const navLink = document.querySelector(`[data-url="${activeItem}"] a`)
 
-  document.querySelector(`[data-url="${activeItem}"] a`).classList.add('active')
+  navLink && navLink.classList.add('active')
 }
 
 export const onClickMobileButton = () => {

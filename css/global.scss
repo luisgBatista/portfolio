@@ -41,10 +41,24 @@ h1 {
       }
     }
 
+    &.col-sm-33 {
+      @media (min-width: $sm-size) {
+        max-width: calc(33.3334% - #{var(--gutter)});
+        flex: 1 1 calc(33.3334% - #{var(--gutter)});
+      }
+    }
+
     &.col-sm-50 {
       @media (min-width: $sm-size) {
         max-width: calc(50% - #{var(--gutter)});
         flex: 1 1 calc(50% - #{var(--gutter)});
+      }
+    }
+
+    &.col-md-33 {
+      @media (min-width: $md-size) {
+        max-width: calc(33.3334% - #{var(--gutter)});
+        flex: 1 1 calc(33.3334% - #{var(--gutter)});
       }
     }
 

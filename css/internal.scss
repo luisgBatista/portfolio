@@ -4,7 +4,7 @@ body {
   display: grid;
   grid-template:
     "header" calc($header-height + $gutter-2) "main" 1fr
-    "footer" 140px;
+    "footer" 110px;
 }
 
 main {
@@ -13,6 +13,16 @@ main {
 
 .work-container {
   margin-top: $gutter-2
+}
+
+.work-details h1 {
+  margin-top: $gutter-2;
+  align-items: center;
+
+  img {
+    margin-bottom: $gutter;
+    width: 30px;
+  }
 }
 
 @media (max-width: $md-size) {
