@@ -1,0 +1,125 @@
+header {
+  grid-area: header;
+  color: $color-white;
+  padding: $gutter 0;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+
+  nav {
+    display: flex;
+    margin: auto;
+    max-width: $container-max-width;
+    align-items: center;
+    padding: 0 $gutter;
+    width: 100%;
+
+    .header {
+      display: block;
+    }
+
+    .main {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+
+      li {
+        height: 100%;
+        display: flex;
+
+        a {
+          text-decoration: none;
+          color: $color-white;
+          padding: 0 $gutter-2;
+          line-height: $header-height;
+
+          &.active {
+            color: $color-highlight;
+          }
+        }
+      }
+    }
+
+    .menuButton {
+      display: none;
+    }
+
+    @media (max-width: $sm-size) {
+
+      .menuButton {
+        display: block;
+        overflow: hidden;
+        width: 50px;
+        background: transparent;
+        border: 0 none;
+        margin-left: auto;
+
+
+        svg {
+          stroke: $color-white;
+          transition: rotate 400ms;
+        }
+
+        path {
+          transition: 400ms;
+          stroke-dasharray: 60 31 60 300;
+          stroke-width: 10;
+        }
+
+        &[aria-expanded="true"] {
+          svg {
+            rotate: 0.125turn;
+          }
+
+          path {
+            stroke-dasharray: 60 105 60 300;
+            stroke-dashoffset: -90;
+          }
+
+          ~ul {
+            opacity: 1;
+            width: 100%;
+
+            li {
+              a {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      ul {
+        transition: 250ms;
+        position: fixed;
+        flex-direction: column;
+        inset: calc($header-height + $gutter-2) 0 0 0;
+        background: $color-primary;
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+
+        li {
+          align-items: center;
+
+          a {
+            font-family: 'Kdam Thmor Pro', sans-serif;
+            line-height: normal;
+            font-size: min(10vh, 2rem);
+            padding: $gutter;
+            transition-delay: 250ms;
+            transition-duration: 300ms;
+            transition-property: opacity;
+            opacity: 0;
+          }
+        }
+      }
+
+    }
+  }
+}

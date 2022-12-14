@@ -1,5 +1,4 @@
-@import "reset.css";
-@import "variables.scss";
+@import "reset.css", "variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Lato:wght@400;700&display=swap');
 
 html {
@@ -22,9 +21,14 @@ h1 {
 }
 
 .row {
+  --gutter: 0%;
   display: flex;
-  gap: $gutter-2;
   flex-wrap: wrap;
+
+  &:not(.no-gutter) {
+    gap: $gutter-2;
+    --gutter: #{$gutter-2};
+  }
 
   >* {
     max-width: 100%;
@@ -36,6 +40,21 @@ h1 {
         flex: 1 1 0;
       }
     }
+
+    &.col-sm-50 {
+      @media (min-width: $sm-size) {
+        max-width: calc(50% - #{var(--gutter)});
+        flex: 1 1 calc(50% - #{var(--gutter)});
+      }
+    }
+
+    &.col-lg-25 {
+      @media (min-width: $lg-size) {
+        max-width: calc(25% - #{var(--gutter)});
+        flex: 1 1 calc(25% - #{var(--gutter)});
+      }
+    }
+
   }
 
 
